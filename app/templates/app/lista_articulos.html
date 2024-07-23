@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de articulos</title>
+</head>
+<body>
+    <h1>Lista de articulos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for articulo in articulos %}
+            <tr>
+                <td>{{ articulo.nombre }}</td>
+                <td>{{ articulo.descripcion }}</td>
+                <td>
+                    <a href="{% url 'editar_articulo' articulo.id %}">Editar</a>
+                    <a href="{% url 'eliminar_articulo' articulo.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'crear_articulo' %}">Crear Nuevo articulo</a>
+</body>
+</html>
